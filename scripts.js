@@ -3,937 +3,937 @@ rangers = [
         name: "Jason Lee Scott (Mighty Morphin Red)",
         color: "red",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Rocky DeSantos (Mighty Morphin Red)",
         color: "red",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Zack Taylor",
         color: "black",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Adam Park (Mighty Morphin Black)",
         color: "black",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Billy Cranston",
         color: "blue",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Trini Kwan",
         color: "yellow",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Aisha Campbell",
         color: "yellow",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Kimberly Ann Hart",
         color: "pink",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Katherine Hillard (Mighty Morphin Pink)",
         color: "pink",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Tommy Oliver (Mighty Morphin Green)",
         color: "green",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Tommy Oliver (Mighty Morphin White)",
         color: "white",
         team: "mmpr",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Tommy Oliver (Zeo Red)",
         color: "red",
         team: "zeo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Adam Park (Zeo Green)",
         color: "green",
         team: "zeo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Rocky DeSantos (Zeo Blue)",
         color: "blue",
         team: "zeo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Tanya Sloan (Zeo Yellow)",
         color: "yellow",
         team: "zeo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Katherine Hillard (Zeo Pink)",
         color: "pink",
         team: "zeo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Trey of Triforia",
         color: "gold",
         team: "zeo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Jason Lee Scott (Zeo Gold)",
         color: "gold",
         team: "zeo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Tommy Oliver (Turbo Red)",
         color: "red",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "T.J. Johnson (Turbo Red)",
         color: "red",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Justin Stewart",
         color: "blue",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Adam Park (Turbo Green)",
         color: "green",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Carlos Vallerte (Turbo Green)",
         color: "green",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Tanya Sloan (Turbo Yellow)",
         color: "yellow",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Ashley Hammond (Turbo Yellow)",
         color: "yellow",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Katherine Hillard (Turbo Pink)",
         color: "pink",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Cassie Chan (Turbo Pink)",
         color: "pink",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Phantom Ranger (Black)",
         color: "black",
         team: "turbo",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Andros",
         color: "red",
         team: "inspace",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Carlos Vallerte (In Space Black)",
         color: "black",
         team: "inspace",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "T.J. Johnson (In Space Blue)",
         color: "blue",
         team: "inspace",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Ashley Hammond (In Space Yellow)",
         color: "yellow",
         team: "inspace",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Cassie Chan (In Space Pink)",
         color: "pink",
         team: "inspace",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Zhane",
         color: "silver",
         team: "inspace",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Leo Corbett",
         color: "red",
         team: "lostgalaxy",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Kai Chen",
         color: "blue",
         team: "lostgalaxy",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Damon Henderson",
         color: "green",
         team: "lostgalaxy",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Maya",
         color: "yellow",
         team: "lostgalaxy",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Kendrix Morgan",
         color: "pink",
         team: "lostgalaxy",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Karone",
         color: "pink",
         team: "lostgalaxy",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Carter Grayson",
         color: "red",
         team: "lightspeed",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Chad Lee",
         color: "blue",
         team: "lightspeed",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Joel Rawlings",
         color: "green",
         team: "lightspeed",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Kelsey Windslow",
         color: "yellow",
         team: "lightspeed",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Dana Mitchell",
         color: "pink",
         team: "lightspeed",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Ryan Mitchell (Silver)",
         color: "silver",
         team: "lightspeed",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Alex Drake",
         color: "red",
         team: "timeforce",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Wesley Collins",
         color: "red",
         team: "timeforce",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Eric Myers",
         color: "red",
         team: "timeforce",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Jen Scotts",
         color: "pink",
         team: "timeforce",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Lucas Kendall",
         color: "blue",
         team: "timeforce",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Katie Walker",
         color: "yellow",
         team: "timeforce",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Trip",
         color: "green",
         team: "timeforce",
-        era: "Saban"
+        era: "saban"
     },
     {
         name: "Cole Evans",
         color: "red",
         team: "wildforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Taylor Earhardt",
         color: "yellow",
         team: "wildforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Max Cooper",
         color: "blue",
         team: "wildforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Danny Delgado",
         color: "black",
         team: "wildforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Alyssa Enrilé",
         color: "white",
         team: "wildforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Merrick Baliton",
         color: "silver",
         team: "wildforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Shane Clarke",
         color: "red",
         team: "ninjastorm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Hunter Bradley",
         color: "red",
         team: "ninjastorm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Tori Hanson",
         color: "blue",
         team: "ninjastorm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Blake Bradley",
         color: "blue",
         team: "ninjastorm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Dustin Brooks",
         color: "yellow",
         team: "ninjastorm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Cameron Watanabe",
         color: "green",
         team: "ninjastorm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Conner McKnight",
         color: "red",
         team: "dinothunder",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Ethan James",
         color: "blue",
         team: "dinothunder",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Kira Ford",
         color: "yellow",
         team: "dinothunder",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Tommy Oliver (Dino Thunder Black)",
         color: "black",
         team: "dinothunder",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Trent Fernandez-Mercer",
         color: "white",
         team: "dinothunder",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Jack Landors",
         color: "red",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Sky Tate (SPD Red)",
         color: "red",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Bridge Carson (SPD Red)",
         color: "red",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Sky Tate (SPD Blue)",
         color: "blue",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Bridge Carson (SPD Blue)",
         color: "blue",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Bridge Carson (SPD Green)",
         color: "green",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Z Delgado",
         color: "yellow",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Syd Drew",
         color: "pink",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Anubis Cruger (Black)",
         color: "black",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Sam (White)",
         color: "white",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Kat Manx (White)",
         color: "white",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Nova (Silver)",
         color: "silver",
         team: "spd",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Nick Russell",
         color: "red",
         team: "mysticforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Chip Thorn",
         color: "yellow",
         team: "mysticforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Madison Rocca",
         color: "blue",
         team: "mysticforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Vida Rocca",
         color: "pink",
         team: "mysticforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Xander Bly",
         color: "green",
         team: "mysticforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Udonna",
         color: "white",
         team: "mysticforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Daggeron",
         color: "gold",
         team: "mysticforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Leanbow",
         color: "red",
         team: "mysticforce",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Mack Hartford",
         color: "red",
         team: "operationoverdrive",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Will Aston",
         color: "black",
         team: "operationoverdrive",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Dax Lo",
         color: "blue",
         team: "operationoverdrive",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Ronny Robinson",
         color: "yellow",
         team: "operationoverdrive",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Rose Ortiz",
         color: "pink",
         team: "operationoverdrive",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Tyzonn",
         color: "silver",
         team: "operationoverdrive",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Casey Rhodes",
         color: "red",
         team: "junglefury",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Lily Chilman",
         color: "yellow",
         team: "junglefury",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Theo Martin",
         color: "blue",
         team: "junglefury",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "RJ",
         color: "purple",
         team: "junglefury",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Dominic Hargan",
         color: "white",
         team: "junglefury",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Elephant Spirit Ranger",
         color: "green",
         team: "junglefury",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Bat Spirit Ranger",
         color: "black",
         team: "junglefury",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Shark Spirit Ranger",
         color: "blue",
         team: "junglefury",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Scott Truman",
         color: "red",
         team: "rpm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Flynn McAllistair",
         color: "blue",
         team: "rpm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Summer Landsdown",
         color: "yellow",
         team: "rpm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Ziggy Grover",
         color: "green",
         team: "rpm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Dillon",
         color: "black",
         team: "rpm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Gem",
         color: "gold",
         team: "rpm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Gemma",
         color: "silver",
         team: "rpm",
-        era: "Disney"
+        era: "disney"
     },
     {
         name: "Jayden Shiba",
         color: "red",
         team: "samurai",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Lauren Shiba",
         color: "red",
         team: "samurai",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Kevin",
         color: "blue",
         team: "samurai",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Mia Watanabe",
         color: "pink",
         team: "samurai",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Mike",
         color: "green",
         team: "samurai",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Emily",
         color: "yellow",
         team: "samurai",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Antonio Garcia",
         color: "gold",
         team: "samurai",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Troy Burrows",
         color: "red",
         team: "megaforce",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Noah Carver",
         color: "blue",
         team: "megaforce",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Gia Moran",
         color: "yellow",
         team: "megaforce",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Jake Holling (Megaforce Black)",
         color: "black",
         team: "megaforce",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Jake Holling (Super Megaforce Green)",
         color: "green",
         team: "megaforce",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Emma Goodall",
         color: "pink",
         team: "megaforce",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Robo Knight (Silver)",
         color: "silver",
         team: "megaforce",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Orion",
         color: "silver",
         team: "megaforce",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Tyler Navarro",
         color: "red",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Chase Randall",
         color: "black",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Koda",
         color: "blue",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Riley Griffin",
         color: "green",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Shelby Watkins",
         color: "pink",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Sir Ivan of Zandar",
         color: "gold",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "James Navarro",
         color: "blue",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Prince Phillip III",
         color: "silver",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Albert Smith",
         color: "purple",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Kendall Morgan",
         color: "purple",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Zenowing",
         color: "silver",
         team: "dinocharge",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Dane Romero",
         color: "red",
         team: "ninjasteel",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Brody Romero",
         color: "red",
         team: "ninjasteel",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Mick Kanic",
         color: "red",
         team: "ninjasteel",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Preston Tien",
         color: "blue",
         team: "ninjasteel",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Calvin Maxwell",
         color: "yellow",
         team: "ninjasteel",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Hayley Foster",
         color: "white",
         team: "ninjasteel",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Sarah Thompson",
         color: "pink",
         team: "ninjasteel",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Levi Weston",
         color: "gold",
         team: "ninjasteel",
-        era: "Neo-Saban"
+        era: "neo-saban"
     },
     {
         name: "Devon Daniels",
         color: "red",
         team: "beastmorphers",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Ravi Shaw",
         color: "blue",
         team: "beastmorphers",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Zoey Reeves",
         color: "yellow",
         team: "beastmorphers",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Nate Silva",
         color: "gold",
         team: "beastmorphers",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Steel",
         color: "silver",
         team: "beastmorphers",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Zayto",
         color: "red",
         team: "dinofury",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Ollie Akana",
         color: "blue",
         team: "dinofury",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Amelia Jones",
         color: "pink",
         team: "dinofury",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Izzy Garcia",
         color: "green",
         team: "dinofury",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Javi Garcia",
         color: "black",
         team: "dinofury",
-        era: "Hasbro"
+        era: "hasbro"
     },
     {
         name: "Aiyon",
         color: "green",
         team: "dinofury",
-        era: "Hasbro"
+        era: "hasbro"
     }
 ]
 
@@ -983,11 +983,11 @@ function displayGuess(guessElem, ranger) {
     correctCount += compareGuess(ranger.color, target.color, colorElem);
 
     teamElem.style.background = "black";
-    teamElem.innerHTML = `<img src="/img/${ranger.team}_logo.png" alt="${ranger.team}" Logo />`;
+    teamElem.innerHTML = `<img src="img/${ranger.team}_logo.png" alt="${ranger.team}" Logo />`;
     correctCount += compareGuess(ranger.team, target.team, teamElem);
 
     eraElem.style.background = "white";
-    eraElem.innerHTML = `<img src="/img/${ranger.era}_logo.png" alt="${ranger.era}" Logo />`;
+    eraElem.innerHTML = `<img src="img/${ranger.era}_logo.png" alt="${ranger.era}" Logo />`;
     correctCount += compareGuess(ranger.era, target.era, eraElem);
 
     if (correctCount == guessElem.children.length) {
