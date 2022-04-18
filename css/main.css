@@ -50,12 +50,16 @@ button {
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
+
 	position: absolute;
 	background-color: white;
 	box-shadow: 2px 2px 2px -1px #00000080;
+
 	padding: 2em;
 	height: 27em;
 	z-index: 2;
+
+	font-weight: 500;
 }
 
 .example {
@@ -65,7 +69,6 @@ button {
 	gap: 1em;
 	align-items: center;
 	justify-items: center;
-	font-weight: 500;
 }
 
 .example > * {
