@@ -3,19 +3,43 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta guess__name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/main.css" />
+		<script src="https://kit.fontawesome.com/1d36c6497a.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="scripts.js" defer></script>
 		<title>Mighty Morphle</title>
 	</head>
 	<body>
+		<div class="backdrop hidden"></div>
 		<div class="container">
 			<header>
+				<button id="toggle-instructions"><i class="fa-solid fa-circle-question fa-lg" style="color: white"></i></button>
 				<h1 class="title">MIGHTY MORPHLE</h1>
-				<hr />
+				<button id=""><i class="fa-solid fa-chart-bar fa-lg" style="color: white"></i></button>
 			</header>
+			<div class="instructions hidden">
+				<h2>How to play Mighty Morphle</h2>
+				<p>Guess the Power Ranger in 7 tries.</p>
+				<p>After each guess, the color of the tiles will change to show you how close your guess is to the correct ranger:</p>
+				<div class="example">
+					<div class="guess__name" style="border-color: green; background: white">Tommy Oliver</div>
+					Correct Name
+					<div class="guess__color green-ranger" style="border-color: #b83030"></div>
+					Wrong Color
+					<div class="guess__team" style="border-color: #b83030"><img src="/img/mmpr_logo.png" alt="MMPR Logo" /></div>
+					Wrong Team
+					<div class="guess__era" style="border-color: green"><img src="/img/saban_logo.png" alt="Saban Logo" /></div>
+					Correct Era
+				</div>
+			</div>
 			<div class="guesses">
+				<div class="guess">
+					<div class="guess__name"></div>
+					<div class="guess__color"></div>
+					<div class="guess__team"><img src="" alt="" /></div>
+					<div class="guess__era"><img src="" alt="" /></div>
+				</div>
 				<div class="guess">
 					<div class="guess__name"></div>
 					<div class="guess__color"></div>

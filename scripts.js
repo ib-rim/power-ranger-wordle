@@ -938,14 +938,22 @@ rangers = [
 ]
 
 let target = rangers[9];
-let guess = "Kira Ford";
 let guessNum = 0;
-
-let inputElem = document.querySelector("#input");
 let guesses = document.querySelector(".guesses").children;
+
+let instructionsToggle = document.querySelector("#toggle-instructions");
+let instructionsElem = document.querySelector(".instructions");
+let backdropElem = document.querySelector(".backdrop");
+let inputElem = document.querySelector("#input");
 let feedback = document.querySelector(".feedback");
 
 let form = document.querySelector("#form");
+
+instructionsToggle.addEventListener("click", () => {
+    instructionsElem.classList.toggle("hidden");
+    backdropElem.classList.toggle("hidden");
+})
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     let ranger = getRanger(inputElem.value);
@@ -976,8 +984,9 @@ function displayGuess(guessElem, ranger) {
     let eraElem = guessElem.children[3];
 
     nameElem.style.background = "white";
-    nameElem.textContent = ranger.name.split("(")[0];
-    correctCount += compareGuess(ranger.name, target.name, nameElem);
+    let rangerName = ranger.name.split("(")[0];
+    nameElem.textContent = rangerName
+    correctCount += compareGuess(rangerName, target.name.split("(")[0], nameElem);
 
     colorElem.className = `guess__color ${ranger.color}-ranger`;
     correctCount += compareGuess(ranger.color, target.color, colorElem);
