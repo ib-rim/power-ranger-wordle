@@ -937,35 +937,103 @@ rangers = [
     }
 ]
 
+const instructionsButton = document.querySelector("#toggle-instructions");
+const statisticsButton = document.querySelector("#toggle-statistics");
+
+const closeButton = document.querySelector(".close-modal");
+const modalElem = document.querySelector(".modal");
+const instructionsElem = document.querySelector(".instructions");
+const statisticsElem = document.querySelector(".statistics");
+const backdropElem = document.querySelector(".backdrop");
+
+const guessesElems = document.querySelector(".guesses").children;
+const formElem = document.querySelector("#form");
+const inputElem = document.querySelector("#input");
+const targetElem = document.querySelector(".target-ranger");
+const timeElem = document.querySelector(".time");
+
 let target = rangers[9];
-let guessNum = 0;
-let guesses = document.querySelector(".guesses").children;
+let guesses = [];
 
-let instructionsToggle = document.querySelector("#toggle-instructions");
-let instructionsElem = document.querySelector(".instructions");
-let backdropElem = document.querySelector(".backdrop");
-let inputElem = document.querySelector("#input");
-let feedback = document.querySelector(".feedback");
+let gameState = "incomplete";
+let gameData = JSON.parse(localStorage.getItem("gameData")) || [];
 
-let form = document.querySelector("#form");
+for (let i = 0; i < gameData.length; i++) {
+    if (gameData[i].date === (new Date).toISOString().slice(0, 10)) {
+        gameData[i].guesses.forEach(guess => {
+            handleGuess(guessesElems[guesses.length], guess);
+        });
+        break;
+    }
+}
 
-instructionsToggle.addEventListener("click", () => {
-    instructionsElem.classList.toggle("hidden");
-    backdropElem.classList.toggle("hidden");
+if (guesses.length == 0) {
+    startGuessing();
+}
+
+instructionsButton.addEventListener("click", () => {
+    showModal();
+    statisticsElem.classList.add("hidden");
+    instructionsElem.classList.remove("hidden");
 })
 
-form.addEventListener("submit", (event) => {
+statisticsButton.addEventListener("click", () => {
+    showModal();
+    statisticsElem.classList.remove("hidden");
+    instructionsElem.classList.add("hidden");
+})
+
+closeButton.addEventListener("click", () => {
+    closeModal();
+})
+
+backdropElem.addEventListener("click", () => {
+    closeModal();
+})
+
+formElem.addEventListener("submit", (event) => {
     event.preventDefault();
     let ranger = getRanger(inputElem.value);
     if (ranger) {
-        displayGuess(guesses[guessNum], ranger);
-        guessNum++;
-    }
-    if (guessNum == guesses.length) {
-        endGuessing();
+        handleGuess(guessesElems[guesses.length], ranger);
     }
     inputElem.value = "";
 })
+
+function saveGameData() {
+    let todaySaved = false;
+
+    for (let i = 0; i < gameData.length && !todaySaved; i++) {
+        if (gameData[i].date === (new Date).toISOString().slice(0, 10)) {
+            gameData[i] = {
+                "date": (new Date).toISOString().slice(0, 10),
+                "guesses": guesses,
+                "state": gameState,
+            };
+            todaySaved = true;
+        }
+    }
+
+    if (!todaySaved) {
+        gameData.push({
+            "date": (new Date).toISOString().slice(0, 10),
+            "guesses": guesses,
+            "state": gameState,
+        })
+    }
+
+    localStorage.setItem("gameData", JSON.stringify(gameData));
+}
+
+function showModal() {
+    modalElem.classList.remove("modal-hidden");
+    backdropElem.classList.remove("hidden");
+}
+
+function closeModal() {
+    backdropElem.classList.add("hidden");
+    modalElem.classList.add("modal-hidden");
+}
 
 function getRanger(rangerName) {
     for (let i = 0; i < rangers.length; i++) {
@@ -976,7 +1044,7 @@ function getRanger(rangerName) {
     return "";
 }
 
-function displayGuess(guessElem, ranger) {
+function handleGuess(guessElem, ranger) {
     let correctCount = 0;
     let nameElem = guessElem.children[0];
     let colorElem = guessElem.children[1];
@@ -999,13 +1067,18 @@ function displayGuess(guessElem, ranger) {
     eraElem.innerHTML = `<img src="img/${ranger.era}_logo.png" alt="${ranger.era}" Logo />`;
     correctCount += compareGuess(ranger.era, target.era, eraElem);
 
-    if (correctCount == guessElem.children.length) {
-        endGuessing()
+    guesses.push(ranger);
+    if (correctCount === guessElem.children.length) {
+        endGuessing("win");
     }
+    else if (guesses.length == guessesElems.length) {
+        endGuessing("loss");
+    }
+    saveGameData();
 }
 
 function compareGuess(guess, target, elem) {
-    if (guess == target) {
+    if (guess === target) {
         elem.style.borderColor = "green";
         return 1;
     }
@@ -1015,9 +1088,14 @@ function compareGuess(guess, target, elem) {
     }
 }
 
-function endGuessing() {
-    form.style.display = "none";
-    feedback.innerHTML = `<p>Next Mighty Morphle in</p><p class="time">00:00:00</p><p>The correct ranger was <p class="ranger">${target.name}</p></p>`;
+function startGuessing() {
+    formElem.style.display = "block";
+}
+
+function endGuessing(state) {
+    formElem.style.display = "none";
+    targetElem.innerHTML = target.name;
+    gameState = state;
 }
 
 //Autocomplete
@@ -1119,3 +1197,20 @@ function autocomplete(inp, arr) {
 }
 
 autocomplete(inputElem, rangers);
+
+setInterval(() => {
+    let toDate = new Date();
+    let tomorrow = new Date();
+    tomorrow.setHours(1, 0, 0, 0);
+    let diffMS = tomorrow.getTime() / 1000 - toDate.getTime() / 1000;
+    let diffHr = Math.floor(diffMS / 3600);
+    diffMS = diffMS - diffHr * 3600;
+    let diffMi = Math.floor(diffMS / 60);
+    diffMS = diffMS - diffMi * 60;
+    let diffS = Math.floor(diffMS);
+    let result = ((diffHr < 10) ? "0" + diffHr : diffHr);
+    result += ":" + ((diffMi < 10) ? "0" + diffMi : diffMi);
+    result += ":" + ((diffS < 10) ? "0" + diffS : diffS);
+    timeElem.innerHTML = result;
+
+}, 1000);

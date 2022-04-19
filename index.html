@@ -16,22 +16,47 @@
 			<header>
 				<button id="toggle-instructions"><i class="fa-solid fa-circle-question fa-lg" style="color: white"></i></button>
 				<h1 class="title">MIGHTY MORPHLE</h1>
-				<button id=""><i class="fa-solid fa-chart-bar fa-lg" style="color: white"></i></button>
+				<button id="toggle-statistics"><i class="fa-solid fa-chart-bar fa-lg" style="color: white"></i></button>
 			</header>
-			<div class="instructions hidden">
-				<h2>How to play Mighty Morphle</h2>
-				<p>Guess the Power Ranger in 7 tries.</p>
-				<p>After each guess, the color of the tiles will change to show you how close your guess is to the correct ranger:</p>
-				<div class="example">
-					<div class="guess__name" style="border-color: green; background: white">Tommy Oliver</div>
-					Correct Name
-					<div class="guess__color green-ranger" style="border-color: #b83030"></div>
-					Wrong Color
-					<div class="guess__team" style="border-color: #b83030"><img src="img/mmpr_logo.png" alt="MMPR Logo" /></div>
-					Wrong Team
-					<div class="guess__era" style="border-color: green"><img src="img/saban_logo.png" alt="Saban Logo" /></div>
-					Correct Era
+			<div class="modal modal-hidden">
+				<div class="instructions">
+					<h2>How to play Mighty Morphle</h2>
+					<p>Guess the Power Ranger in 7 tries.</p>
+					<p>After each guess, the color of the tiles will change to show you how close your guess is to the correct ranger:</p>
+					<div class="example">
+						<div class="guess__name" style="border-color: green; background: white">Tommy Oliver</div>
+						Correct Name
+						<div class="guess__color green-ranger" style="border-color: #b83030"></div>
+						Wrong Color
+						<div class="guess__team" style="border-color: #b83030"><img src="img/mmpr_logo.png" alt="MMPR Logo" /></div>
+						Wrong Team
+						<div class="guess__era" style="border-color: green"><img src="img/saban_logo.png" alt="Saban Logo" /></div>
+						Correct Era
+					</div>
 				</div>
+				<div class="statistics">
+					<h3>Statistics</h3>
+					<div class="statistics__grid">
+						<div class="statistic">
+							<p class="statistic__number">x</p>
+							Games Played
+						</div>
+						<div class="statistic">
+							<p class="statistic__number">x%</p>
+							Win Percentage
+						</div>
+						<div class="statistic">
+							<p class="statistic__number">x</p>
+							Current Streak
+						</div>
+						<div class="statistic">
+							<p class="statistic__number">x</p>
+							Best Streak
+						</div>
+					</div>
+					<h3>Guess Distribution</h3>
+				</div>
+				<button class="close-modal">Close</button>
 			</div>
 			<div class="guesses">
 				<div class="guess">
@@ -81,7 +106,9 @@
 				<input id="input" type="text" guess__name="ranger" placeholder="Ranger Name" />
 				<input id="submit" type="submit" value="Guess" />
 			</form>
-			<div class="feedback"></div>
+			<div class="feedback">
+                <p>Next Mighty Morphle in</p><p class="time">--:--:--</p><p>The correct ranger was <p class="target-ranger"></p></p>
+            </div>
 		</div>
 	</body>
 </html>
