@@ -942,9 +942,13 @@ const statisticsButton = document.querySelector("#toggle-statistics");
 
 const closeButton = document.querySelector(".close-modal");
 const modalElem = document.querySelector(".modal");
+const backdropElem = document.querySelector(".backdrop");
 const instructionsElem = document.querySelector(".instructions");
 const statisticsElem = document.querySelector(".statistics");
-const backdropElem = document.querySelector(".backdrop");
+const gamesPlayedElem = document.querySelector("#games-played");
+const winrateElem = document.querySelector("#winrate");
+const currentStreakElem = document.querySelector("#current-streak");
+const bestStreakElem = document.querySelector("#best-streak");
 
 const guessesElems = document.querySelector(".guesses").children;
 const formElem = document.querySelector("#form");
@@ -1024,6 +1028,70 @@ function saveGameData() {
     }
 
     localStorage.setItem("gameData", JSON.stringify(gameData));
+    calculateStatistics();
+}
+
+function calculateStatistics() {
+    console.log(gameData);
+    gamesPlayedElem.textContent = calculateGamesPlayed();
+    winrateElem.textContent = `${calculateWinPercentage()}%`;
+    currentStreakElem.textContent = calculateCurrentStreak();
+    bestStreakElem.textContent = calculateBestStreak();
+}
+
+function calculateGamesPlayed() {
+    let gamesPlayed = 0;
+    gameData.forEach(game => {
+        console.log(game.date);
+        console.log(game.state);
+        if ((game.date !== (new Date).toISOString().slice(0, 10)) || (game.state !== "incomplete")) {
+            gamesPlayed++;
+        }
+        console.log(gamesPlayed);
+    });
+    return gamesPlayed;
+}
+
+function calculateWinPercentage() {
+    let winCount = 0;
+    gameData.forEach(game => {
+        if (game.state === "win") {
+            winCount++;
+        }
+    });
+    return Math.round(winCount / calculateGamesPlayed()) * 100;
+}
+
+function calculateCurrentStreak() {
+    let currentStreak = 0;
+    for (let i = gameData.length - 1; i >= 0; i--) {
+        if ((gameData[i].date !== (new Date).toISOString().slice(0, 10)) || (gameData[i].state !== "incomplete")) {
+            if (gameData[i].state === "win") {
+                currentStreak++;
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return currentStreak;
+}
+
+function calculateBestStreak() {
+    let bestStreak = 0;
+    let streak = 0;
+    for (let i = 0; i < gameData.length; i++) {
+        if (gameData[i].state === "win") {
+            streak++;
+            if (streak > bestStreak) {
+                bestStreak = streak;
+            }
+        }
+        else {
+            streak = 0;
+        }
+    }
+    return bestStreak;
 }
 
 function showModal() {
