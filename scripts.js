@@ -950,6 +950,7 @@ const guessesElems = document.querySelector(".guesses").children;
 const formElem = document.querySelector("#form");
 const inputElem = document.querySelector("#input");
 const targetElem = document.querySelector(".target-ranger");
+const feedbackElem = document.querySelector(".feedback");
 const timeElem = document.querySelector(".time");
 
 let target = rangers[9];
@@ -1090,10 +1091,12 @@ function compareGuess(guess, target, elem) {
 
 function startGuessing() {
     formElem.style.display = "block";
+    feedbackElem.style.display = "none";
 }
 
 function endGuessing(state) {
     formElem.style.display = "none";
+    feedbackElem.style.display = "block";
     targetElem.innerHTML = target.name;
     gameState = state;
 }
@@ -1201,7 +1204,7 @@ autocomplete(inputElem, rangers);
 setInterval(() => {
     let toDate = new Date();
     let tomorrow = new Date();
-    tomorrow.setHours(1, 0, 0, 0);
+    tomorrow.setHours(25, 0, 0, 0);
     let diffMS = tomorrow.getTime() / 1000 - toDate.getTime() / 1000;
     let diffHr = Math.floor(diffMS / 3600);
     diffMS = diffMS - diffHr * 3600;
