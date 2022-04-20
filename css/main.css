@@ -1,11 +1,11 @@
 @font-face {
 	font-family: "Montserrat";
-	src: url("/fonts/Montserrat-VariableFont_wght.ttf");
+	src: url("../fonts/Montserrat-VariableFont_wght.ttf");
 }
 
 @font-face {
 	font-family: "cmu-sans";
-	src: url("/fonts/cmu.sans-serif-bold.ttf");
+	src: url("../fonts/cmu.sans-serif-bold.ttf");
 }
 
 body {
