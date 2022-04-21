@@ -19,7 +19,7 @@ header {
 	gap: 2em;
 	position: relative;
 	text-align: center;
-	background-color: #848484;
+	background-color: #4a4a4a;
 	color: white;
 	box-shadow: 2px 2px 2px -1px #00000080;
 	z-index: 2;
@@ -79,7 +79,7 @@ button:hover {
 }
 
 .close-modal {
-	background-color: #323232;
+	background-color: #4a4a4a;
 	color: white;
 	width: 75px;
 	padding: 0.5em;
@@ -311,4 +311,24 @@ input[type="submit"] {
 
 .hidden {
 	display: none;
+}
+
+.ts--green {
+	text-shadow: 1px 1px 0.5px rgb(36, 241, 70);
+}
+
+.ts--blue {
+	text-shadow: 1px 1px 0.5px rgb(39, 36, 241);
+}
+
+.ts--pink {
+	text-shadow: 1px 1px 0.5px rgb(241, 36, 186);
+}
+
+.ts--red {
+	text-shadow: 1px 1px 0.5px rgb(238, 17, 1);
+}
+
+.ts--yellow {
+	text-shadow: 1px 1px 0.5px rgb(234, 241, 36);
 }
