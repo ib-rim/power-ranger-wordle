@@ -314,21 +314,21 @@ input[type="submit"] {
 }
 
 .ts--green {
-	text-shadow: 1px 1px 0.5px rgb(36, 241, 70);
+	text-shadow: 1px 1px 50px rgb(36, 241, 70);
 }
 
 .ts--blue {
-	text-shadow: 1px 1px 0.5px rgb(39, 36, 241);
+	text-shadow: 1px 1px 50px rgb(39, 36, 241);
 }
 
 .ts--pink {
-	text-shadow: 1px 1px 0.5px rgb(241, 36, 186);
+	text-shadow: 1px 1px 50px rgb(241, 36, 186);
 }
 
 .ts--red {
-	text-shadow: 1px 1px 0.5px rgb(238, 17, 1);
+	text-shadow: 1px 1px 50px rgb(238, 17, 1);
 }
 
 .ts--yellow {
-	text-shadow: 1px 1px 0.5px rgb(234, 241, 36);
+	text-shadow: 1px 1px 50px rgb(240, 245, 110);
 }
