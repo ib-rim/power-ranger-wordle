@@ -1032,7 +1032,6 @@ function saveGameData() {
 }
 
 function calculateStatistics() {
-    console.log(gameData);
     gamesPlayedElem.textContent = calculateGamesPlayed();
     winrateElem.textContent = `${calculateWinPercentage()}%`;
     currentStreakElem.textContent = calculateCurrentStreak();
@@ -1042,12 +1041,9 @@ function calculateStatistics() {
 function calculateGamesPlayed() {
     let gamesPlayed = 0;
     gameData.forEach(game => {
-        console.log(game.date);
-        console.log(game.state);
         if ((game.date !== (new Date).toISOString().slice(0, 10)) || (game.state !== "incomplete")) {
             gamesPlayed++;
         }
-        console.log(gamesPlayed);
     });
     return gamesPlayed;
 }
@@ -1059,7 +1055,7 @@ function calculateWinPercentage() {
             winCount++;
         }
     });
-    return Math.round(winCount / calculateGamesPlayed()) * 100;
+    return Math.round(winCount / calculateGamesPlayed() * 100);
 }
 
 function calculateCurrentStreak() {
@@ -1160,6 +1156,7 @@ function compareGuess(guess, target, elem) {
 function startGuessing() {
     formElem.style.display = "block";
     feedbackElem.style.display = "none";
+    calculateStatistics();
 }
 
 function endGuessing(state) {
@@ -1272,7 +1269,8 @@ autocomplete(inputElem, rangers);
 setInterval(() => {
     let toDate = new Date();
     let tomorrow = new Date();
-    tomorrow.setHours(25, 0, 0, 0);
+    tomorrow.setHours(24, 0, 0, 0);
+    tomorrow.setHours(1, 0, 0, 0);
     let diffMS = tomorrow.getTime() / 1000 - toDate.getTime() / 1000;
     let diffHr = Math.floor(diffMS / 3600);
     diffMS = diffMS - diffHr * 3600;
