@@ -949,6 +949,7 @@ const gamesPlayedElem = document.querySelector("#games-played");
 const winrateElem = document.querySelector("#winrate");
 const currentStreakElem = document.querySelector("#current-streak");
 const bestStreakElem = document.querySelector("#best-streak");
+const barElems = document.querySelector(".chart").children;
 
 const guessesElems = document.querySelector(".guesses").children;
 const formElem = document.querySelector("#form");
@@ -975,6 +976,8 @@ for (let i = 0; i < gameData.length; i++) {
 if (guesses.length == 0) {
     startGuessing();
 }
+displayGuessDistribution();
+
 
 instructionsButton.addEventListener("click", () => {
     showModal();
@@ -1041,7 +1044,7 @@ function calculateStatistics() {
 function calculateGamesPlayed() {
     let gamesPlayed = 0;
     gameData.forEach(game => {
-        if ((game.date !== (new Date).toISOString().slice(0, 10)) || (game.state !== "incomplete")) {
+        if ((game.state !== "incomplete")) {
             gamesPlayed++;
         }
     });
@@ -1061,7 +1064,7 @@ function calculateWinPercentage() {
 function calculateCurrentStreak() {
     let currentStreak = 0;
     for (let i = gameData.length - 1; i >= 0; i--) {
-        if ((gameData[i].date !== (new Date).toISOString().slice(0, 10)) || (gameData[i].state !== "incomplete")) {
+        if (gameData[i].state !== "incomplete") {
             if (gameData[i].state === "win") {
                 currentStreak++;
             }
@@ -1088,6 +1091,37 @@ function calculateBestStreak() {
         }
     }
     return bestStreak;
+}
+
+function displayGuessDistribution() {
+    let total = 0;
+    let guessDistribution = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+    };
+    gameData.forEach(game => {
+        if (game.state === "win") {
+            guessDistribution[game.guesses.length] = game.guesses.length;
+        }
+    });
+
+    for (let i = 1; i <= 7; i++) {
+        if (guessDistribution[i] !== 0) {
+            barElems[i - 1].setAttribute("data-value", guessDistribution[i]);
+            total += guessDistribution[i];
+        }
+    }
+
+    for (let i = 1; i <= 7; i++) {
+        if (guessDistribution[i] !== 0) {
+            barElems[i - 1].style.setProperty("--bar-width", `${Math.round((guessDistribution[i] / total) * 100)}%`);
+        }
+    }
 }
 
 function showModal() {
@@ -1157,6 +1191,7 @@ function startGuessing() {
     formElem.style.display = "block";
     feedbackElem.style.display = "none";
     calculateStatistics();
+    displayGuessDistribution();
 }
 
 function endGuessing(state) {
@@ -1164,6 +1199,7 @@ function endGuessing(state) {
     feedbackElem.style.display = "block";
     targetElem.innerHTML = target.name;
     gameState = state;
+    displayGuessDistribution();
 }
 
 //Autocomplete
