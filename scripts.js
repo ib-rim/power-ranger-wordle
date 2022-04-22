@@ -1032,6 +1032,7 @@ function saveGameData() {
 
     localStorage.setItem("gameData", JSON.stringify(gameData));
     calculateStatistics();
+    displayGuessDistribution();
 }
 
 function calculateStatistics() {
@@ -1104,9 +1105,10 @@ function displayGuessDistribution() {
         6: 0,
         7: 0,
     };
+
     gameData.forEach(game => {
         if (game.state === "win") {
-            guessDistribution[game.guesses.length] = game.guesses.length;
+            guessDistribution[game.guesses.length] += 1;
         }
     });
 
