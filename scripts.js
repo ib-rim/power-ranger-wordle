@@ -958,7 +958,7 @@ const targetElem = document.querySelector(".target-ranger");
 const feedbackElem = document.querySelector(".feedback");
 const timeElem = document.querySelector(".time");
 
-let target = rangers[9];
+let target = rangers[hashDate(new Date())];
 let guesses = [];
 
 let gameState = "incomplete";
@@ -1007,6 +1007,34 @@ formElem.addEventListener("submit", (event) => {
     }
     inputElem.value = "";
 })
+
+function hashDate(d) {
+    let dateString = d.toDateString().slice(4);
+    let sum = 0;
+    for (let i = 0; i < dateString.length; i++) {
+        sum += dateString.charCodeAt(i);
+        sum *= 10;
+        sum -= 53;
+    }
+    sum *= getDayOfYear(d);
+    let dateHashed = sum % 156;
+    return dateHashed;
+}
+
+function getDayOfYear(date = new Date()) {
+    const timestamp1 = Date.UTC(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+    );
+    const timestamp2 = Date.UTC(date.getFullYear(), 0, 0);
+
+    const differenceInMilliseconds = timestamp1 - timestamp2;
+
+    const differenceInDays = differenceInMilliseconds / 1000 / 60 / 60 / 24;
+
+    return differenceInDays;
+}
 
 function saveGameData() {
     let todaySaved = false;
