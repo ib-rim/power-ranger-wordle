@@ -931,7 +931,7 @@ rangers = [
     },
     {
         name: "Aiyon",
-        color: "green",
+        color: "gold",
         team: "dinofury",
         era: "hasbro"
     }
