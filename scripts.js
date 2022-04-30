@@ -1087,7 +1087,7 @@ function calculateWinPercentage() {
             winCount++;
         }
     });
-    return Math.round(winCount / calculateGamesPlayed() * 100);
+    return Math.round(winCount / calculateGamesPlayed() * 100) || 0;
 }
 
 function calculateCurrentStreak() {
