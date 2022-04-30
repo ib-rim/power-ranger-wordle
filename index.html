@@ -20,6 +20,7 @@
                     <span class="ts--red">M</span><span class="ts--pink">ORP</span><span class="ts--blue">HLE</span> 
                 </h1>
 				<button id="toggle-statistics"><i class="fa-solid fa-chart-bar fa-lg" style="color: white"></i></button>
+				<button id="toggle-settings"><i class="fa-solid fa-gear fa-lg" style="color: white"></i></button>
 			</header>
 			<div class="modal modal-hidden">
 				<div class="instructions">
@@ -66,6 +67,16 @@
                         <div class="chart__bar" style="--bar-width:10%;" data-name="5" data-value="0" title=""></div>
                         <div class="chart__bar" style="--bar-width:10%;" data-name="6" data-value="0" title=""></div>
                         <div class="chart__bar" style="--bar-width:10%;" data-name="7" data-value="0" title=""></div>
+                    </div>
+				</div>
+                <div class="settings hidden">
+					<h2>Settings</h2>
+                    <div class="theme">
+                        Dark mode
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
                     </div>
 				</div>
 				<button class="close-modal">Close</button>

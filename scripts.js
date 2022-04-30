@@ -939,12 +939,14 @@ rangers = [
 
 const instructionsButton = document.querySelector("#toggle-instructions");
 const statisticsButton = document.querySelector("#toggle-statistics");
+const settingsButton = document.querySelector("#toggle-settings");
 
 const closeButton = document.querySelector(".close-modal");
 const modalElem = document.querySelector(".modal");
 const backdropElem = document.querySelector(".backdrop");
 const instructionsElem = document.querySelector(".instructions");
 const statisticsElem = document.querySelector(".statistics");
+const settingsElem = document.querySelector(".settings");
 const gamesPlayedElem = document.querySelector("#games-played");
 const winrateElem = document.querySelector("#winrate");
 const currentStreakElem = document.querySelector("#current-streak");
@@ -983,12 +985,21 @@ instructionsButton.addEventListener("click", () => {
     showModal();
     statisticsElem.classList.add("hidden");
     instructionsElem.classList.remove("hidden");
+    settingsElem.classList.add("hidden");
 })
 
 statisticsButton.addEventListener("click", () => {
     showModal();
     statisticsElem.classList.remove("hidden");
     instructionsElem.classList.add("hidden");
+    settingsElem.classList.add("hidden");
+})
+
+settingsButton.addEventListener("click", () => {
+    showModal();
+    statisticsElem.classList.add("hidden");
+    instructionsElem.classList.add("hidden");
+    settingsElem.classList.remove("hidden");
 })
 
 closeButton.addEventListener("click", () => {
