@@ -1143,6 +1143,7 @@ function displayGuessDistribution() {
         5: 0,
         6: 0,
         7: 0,
+        8: 0,
     };
 
     gameData.forEach(game => {
@@ -1151,14 +1152,14 @@ function displayGuessDistribution() {
         }
     });
 
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 1; i <= 8; i++) {
         if (guessDistribution[i] !== 0) {
             barElems[i - 1].setAttribute("data-value", guessDistribution[i]);
             total += guessDistribution[i];
         }
     }
 
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 1; i <= 8; i++) {
         if (guessDistribution[i] !== 0) {
             barElems[i - 1].style.setProperty("--bar-width", `${Math.round((guessDistribution[i] / total) * 100)}%`);
         }
