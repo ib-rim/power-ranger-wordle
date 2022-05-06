@@ -937,25 +937,32 @@ rangers = [
     }
 ]
 
+//Header buttons
 const instructionsButton = document.querySelector("#toggle-instructions");
 const statisticsButton = document.querySelector("#toggle-statistics");
 const settingsButton = document.querySelector("#toggle-settings");
 
+//Modal elements
 const closeButton = document.querySelector(".close-modal");
 const modalElem = document.querySelector(".modal");
 const backdropElem = document.querySelector(".backdrop");
 const instructionsElem = document.querySelector(".instructions");
 const statisticsElem = document.querySelector(".statistics");
 const settingsElem = document.querySelector(".settings");
+
+//Statistics modal elements
 const gamesPlayedElem = document.querySelector("#games-played");
 const winrateElem = document.querySelector("#winrate");
 const currentStreakElem = document.querySelector("#current-streak");
 const bestStreakElem = document.querySelector("#best-streak");
 const barElems = document.querySelector(".chart").children;
 
+//Guessing elements
 const guessesElems = document.querySelector(".guesses").children;
 const formElem = document.querySelector("#form");
 const inputElem = document.querySelector("#input");
+
+//Feedback elements
 const targetElem = document.querySelector(".target-ranger");
 const feedbackElem = document.querySelector(".feedback");
 const timeElem = document.querySelector(".time");
@@ -966,6 +973,7 @@ let guesses = [];
 let gameState = "incomplete";
 let gameData = JSON.parse(localStorage.getItem("gameData")) || [];
 
+//Display saved data for today's guesses
 for (let i = 0; i < gameData.length; i++) {
     if (gameData[i].date === (new Date).toISOString().slice(0, 10)) {
         gameData[i].guesses.forEach(guess => {
@@ -975,12 +983,13 @@ for (let i = 0; i < gameData.length; i++) {
     }
 }
 
+//Allow guessing if no attempts made today
 if (guesses.length == 0) {
     startGuessing();
 }
 displayGuessDistribution();
 
-
+//Show only instructions modal
 instructionsButton.addEventListener("click", () => {
     showModal();
     statisticsElem.classList.add("hidden");
@@ -988,6 +997,7 @@ instructionsButton.addEventListener("click", () => {
     settingsElem.classList.add("hidden");
 })
 
+//Show only statistics modal
 statisticsButton.addEventListener("click", () => {
     showModal();
     statisticsElem.classList.remove("hidden");
@@ -995,6 +1005,7 @@ statisticsButton.addEventListener("click", () => {
     settingsElem.classList.add("hidden");
 })
 
+//Show only settings modal
 settingsButton.addEventListener("click", () => {
     showModal();
     statisticsElem.classList.add("hidden");
@@ -1010,6 +1021,17 @@ backdropElem.addEventListener("click", () => {
     closeModal();
 })
 
+function showModal() {
+    modalElem.classList.remove("modal-hidden");
+    backdropElem.classList.remove("hidden");
+}
+
+function closeModal() {
+    backdropElem.classList.add("hidden");
+    modalElem.classList.add("modal-hidden");
+}
+
+//Process guess if ranger exists
 formElem.addEventListener("submit", (event) => {
     event.preventDefault();
     let ranger = getRanger(inputElem.value);
@@ -1019,6 +1041,17 @@ formElem.addEventListener("submit", (event) => {
     inputElem.value = "";
 })
 
+//Get ranger object from list using name
+function getRanger(rangerName) {
+    for (let i = 0; i < rangers.length; i++) {
+        if (rangers[i].name === rangerName) {
+            return rangers[i];
+        }
+    }
+    return "";
+}
+
+//Create hash using given date
 function hashDate(d) {
     let dateString = d.toDateString().slice(4);
     let sum = 0;
@@ -1032,6 +1065,7 @@ function hashDate(d) {
     return dateHashed;
 }
 
+//Calculate day of the year 1-365 (366 if leap year)
 function getDayOfYear(date = new Date()) {
     const timestamp1 = Date.UTC(
         date.getFullYear(),
@@ -1047,9 +1081,11 @@ function getDayOfYear(date = new Date()) {
     return differenceInDays;
 }
 
+//Save game data to local storage
 function saveGameData() {
     let todaySaved = false;
 
+    //Override today's data with any new data
     for (let i = 0; i < gameData.length && !todaySaved; i++) {
         if (gameData[i].date === (new Date).toISOString().slice(0, 10)) {
             gameData[i] = {
@@ -1061,6 +1097,7 @@ function saveGameData() {
         }
     }
 
+    //Save today's data to localStorage if not already saved
     if (!todaySaved) {
         gameData.push({
             "date": (new Date).toISOString().slice(0, 10),
@@ -1068,12 +1105,13 @@ function saveGameData() {
             "state": gameState,
         })
     }
-
     localStorage.setItem("gameData", JSON.stringify(gameData));
+
     calculateStatistics();
     displayGuessDistribution();
 }
 
+//Calculate statistics for statistics modal
 function calculateStatistics() {
     gamesPlayedElem.textContent = calculateGamesPlayed();
     winrateElem.textContent = `${calculateWinPercentage()}%`;
@@ -1081,6 +1119,7 @@ function calculateStatistics() {
     bestStreakElem.textContent = calculateBestStreak();
 }
 
+//Calculate games played (only complete games: wins and losses)
 function calculateGamesPlayed() {
     let gamesPlayed = 0;
     gameData.forEach(game => {
@@ -1091,6 +1130,7 @@ function calculateGamesPlayed() {
     return gamesPlayed;
 }
 
+//Calculate win percentage
 function calculateWinPercentage() {
     let winCount = 0;
     gameData.forEach(game => {
@@ -1101,6 +1141,7 @@ function calculateWinPercentage() {
     return Math.round(winCount / calculateGamesPlayed() * 100) || 0;
 }
 
+//Calculate current streak
 function calculateCurrentStreak() {
     let currentStreak = 0;
     for (let i = gameData.length - 1; i >= 0; i--) {
@@ -1116,6 +1157,7 @@ function calculateCurrentStreak() {
     return currentStreak;
 }
 
+//Calculate best streak 
 function calculateBestStreak() {
     let bestStreak = 0;
     let streak = 0;
@@ -1133,6 +1175,7 @@ function calculateBestStreak() {
     return bestStreak;
 }
 
+//Display number of guesses for each win
 function displayGuessDistribution() {
     let total = 0;
     let guessDistribution = {
@@ -1146,12 +1189,14 @@ function displayGuessDistribution() {
         8: 0,
     };
 
+    //Tally number of guesses for each win
     gameData.forEach(game => {
         if (game.state === "win") {
             guessDistribution[game.guesses.length] += 1;
         }
     });
 
+    //Set data value for display and calculate total wins 
     for (let i = 1; i <= 8; i++) {
         if (guessDistribution[i] !== 0) {
             barElems[i - 1].setAttribute("data-value", guessDistribution[i]);
@@ -1159,6 +1204,7 @@ function displayGuessDistribution() {
         }
     }
 
+    //Set width of bar based on proportion of each guess number
     for (let i = 1; i <= 8; i++) {
         if (guessDistribution[i] !== 0) {
             barElems[i - 1].style.setProperty("--bar-width", `${Math.round((guessDistribution[i] / total) * 100)}%`);
@@ -1166,25 +1212,7 @@ function displayGuessDistribution() {
     }
 }
 
-function showModal() {
-    modalElem.classList.remove("modal-hidden");
-    backdropElem.classList.remove("hidden");
-}
-
-function closeModal() {
-    backdropElem.classList.add("hidden");
-    modalElem.classList.add("modal-hidden");
-}
-
-function getRanger(rangerName) {
-    for (let i = 0; i < rangers.length; i++) {
-        if (rangers[i].name === rangerName) {
-            return rangers[i];
-        }
-    }
-    return "";
-}
-
+//Display guessed ranger and info and save game state
 function handleGuess(guessElem, ranger) {
     let correctCount = 0;
     let nameElem = guessElem.children[0];
@@ -1218,6 +1246,7 @@ function handleGuess(guessElem, ranger) {
     saveGameData();
 }
 
+//Compare guess to target and set appropriate broder
 function compareGuess(guess, target, elem) {
     if (guess === target) {
         elem.style.borderColor = "green";
@@ -1341,9 +1370,9 @@ function autocomplete(inp, arr) {
         closeAllLists(e.target);
     });
 }
-
 autocomplete(inputElem, rangers);
 
+//Countdown to UTC midnight (WIP)
 setInterval(() => {
     let toDate = new Date();
     let tomorrow = new Date();
