@@ -937,6 +937,8 @@ rangers = [
     }
 ]
 
+const rootElem = document.querySelector(":root");
+
 //Header buttons
 const instructionsButton = document.querySelector("#toggle-instructions");
 const statisticsButton = document.querySelector("#toggle-statistics");
@@ -957,6 +959,9 @@ const currentStreakElem = document.querySelector("#current-streak");
 const bestStreakElem = document.querySelector("#best-streak");
 const barElems = document.querySelector(".chart").children;
 
+//Settings modal elements
+const themeToggle = document.querySelector("#theme-toggle");
+
 //Guessing elements
 const guessesElems = document.querySelector(".guesses").children;
 const formElem = document.querySelector("#form");
@@ -967,11 +972,14 @@ const targetElem = document.querySelector(".target-ranger");
 const feedbackElem = document.querySelector(".feedback");
 const timeElem = document.querySelector(".time");
 
+setDarkTheme(localStorage.getItem("darkTheme") === "true");
+
 let target = rangers[hashDate(new Date())];
 let guesses = [];
 
 let gameState = "incomplete";
 let gameData = JSON.parse(localStorage.getItem("gameData")) || [];
+
 
 //Display saved data for today's guesses
 for (let i = 0; i < gameData.length; i++) {
@@ -1029,6 +1037,28 @@ function showModal() {
 function closeModal() {
     backdropElem.classList.add("hidden");
     modalElem.classList.add("modal-hidden");
+}
+
+themeToggle.addEventListener('change', () => {
+    setDarkTheme(themeToggle.checked);
+    localStorage.setItem("darkTheme", themeToggle.checked);
+});
+
+function setDarkTheme(bool) {
+    if (bool) {
+        //Switch to dark mode
+        rootElem.style.setProperty('--bg-color', getComputedStyle(rootElem).getPropertyValue('--bg-dark'));
+        rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-dark'));
+        rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-dark'));
+        rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-dark'));
+    }
+    else {
+        //Switch to light mode
+        rootElem.style.setProperty('--bg-color', getComputedStyle(rootElem).getPropertyValue('--bg-light'));
+        rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-light'));
+        rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-light'));
+        rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-light'));
+    }
 }
 
 //Process guess if ranger exists
@@ -1220,7 +1250,7 @@ function handleGuess(guessElem, ranger) {
     let teamElem = guessElem.children[2];
     let eraElem = guessElem.children[3];
 
-    nameElem.style.background = "white";
+    nameElem.setAttribute("active", "true");
     let rangerName = ranger.name.split("(")[0];
     nameElem.textContent = rangerName
     correctCount += compareGuess(rangerName, target.name.split("(")[0], nameElem);
