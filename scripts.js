@@ -66,6 +66,36 @@ rangers = [
         era: "saban"
     },
     {
+        name: "Aurico",
+        color: "red",
+        team: "alien",
+        era: "saban"
+    },
+    {
+        name: "Delphine",
+        color: "white",
+        team: "alien",
+        era: "saban"
+    },
+    {
+        name: "Cestro",
+        color: "blue",
+        team: "alien",
+        era: "saban"
+    },
+    {
+        name: "Tideus",
+        color: "yellow",
+        team: "alien",
+        era: "saban"
+    },
+    {
+        name: "Corcus",
+        color: "black",
+        team: "alien",
+        era: "saban"
+    },
+    {
         name: "Tommy Oliver (Zeo Red)",
         color: "red",
         team: "zeo",
@@ -1091,7 +1121,7 @@ function hashDate(d) {
         sum -= 53;
     }
     sum *= getDayOfYear(d);
-    let dateHashed = sum % 156;
+    let dateHashed = sum % rangers.length;
     return dateHashed;
 }
 
