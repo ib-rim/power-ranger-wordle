@@ -1083,7 +1083,6 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-dark'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-dark'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-dark'));
-        themeToggle.checked = true;
     }
     else {
         //Switch to light mode
@@ -1091,8 +1090,8 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-light'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-light'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-light'));
-        themeToggle.checked = false;
     }
+    themeToggle.checked = bool;
 }
 
 //Process guess if ranger exists
