@@ -18,6 +18,17 @@
 	--header-bg-dark: #000000;
 	--text-dark: #f1f1f1;
 	--guess-bg-dark: #4a4a4a;
+
+	--blue-ranger-clr: #0060df;
+	--yellow-ranger-clr: yellow;
+	--green-ranger-clr: #00aa00;
+	--white-ranger-clr: white;
+	--red-ranger-clr: #ff3232;
+	--pink-ranger-clr: pink;
+	--black-ranger-clr: black;
+	--gold-ranger-clr: #d8bb12;
+	--silver-ranger-clr: #d5d5d5;
+	--purple-ranger-clr: purple;
 }
 
 @media (prefers-color-scheme: light) {
@@ -441,43 +452,43 @@ input[type="submit"] {
 /* UTILITY */
 
 .blue-ranger {
-	background: #0060df;
+	background: var(--blue-ranger-clr);
 }
 
 .yellow-ranger {
-	background: yellow;
+	background: var(--yellow-ranger-clr);
 }
 
 .green-ranger {
-	background: #00aa00;
+	background: var(--green-ranger-clr);
 }
 
 .white-ranger {
-	background: white;
+	background: var(--white-ranger-clr);
 }
 
 .red-ranger {
-	background: #ff3232;
+	background: var(--red-ranger-clr);
 }
 
 .pink-ranger {
-	background: pink;
+	background: var(--pink-ranger-clr);
 }
 
 .black-ranger {
-	background: black;
+	background: var(--black-ranger-clr);
 }
 
 .gold-ranger {
-	background: #d8bb12;
+	background: var(--gold-ranger-clr);
 }
 
 .silver-ranger {
-	background: #d5d5d5;
+	background: var(--silver-ranger-clr);
 }
 
 .purple-ranger {
-	background: purple;
+	background: var(--purple-ranger-clr);
 }
 
 .hidden {

@@ -1351,6 +1351,7 @@ function endGuessing(state) {
     formElem.style.display = "none";
     feedbackElem.style.display = "block";
     targetElem.innerHTML = target.name;
+    targetElem.style.color = getComputedStyle(rootElem).getPropertyValue(`--${target.color}-ranger-clr`)
     gameState = state;
     displayGuessDistribution();
     shareButton.scrollIntoView();
