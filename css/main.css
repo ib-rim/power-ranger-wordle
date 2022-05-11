@@ -285,7 +285,7 @@ input:checked + .slider:before {
 .guesses {
 	display: grid;
 	gap: 0.5em;
-	margin-top: 1.5em;
+	margin-top: 0.5em;
 }
 
 .guess {
@@ -428,9 +428,14 @@ input[type="submit"] {
 	font-size: 1.2rem;
 }
 
-footer {
-	display: flex;
-	justify-content: center;
+.share-btn {
+	margin-top: 1em;
+	background-color: royalblue;
+	color: white;
+	padding: 0.5em;
+	border-radius: 5px;
+	font-weight: bold;
+	box-shadow: 2px 2px 2px -1px #00000080;
 }
 
 /* UTILITY */

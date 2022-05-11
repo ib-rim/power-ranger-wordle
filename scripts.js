@@ -1001,6 +1001,7 @@ const inputElem = document.querySelector("#input");
 const targetElem = document.querySelector(".target-ranger");
 const feedbackElem = document.querySelector(".feedback");
 const timeElem = document.querySelector(".time");
+const shareButton = document.querySelector("#share");
 
 setDarkTheme(localStorage.getItem("darkTheme") === "true");
 
@@ -1009,6 +1010,7 @@ let guesses = [];
 
 let gameState = "incomplete";
 let gameData = JSON.parse(localStorage.getItem("gameData")) || [];
+let guessesAsEmoji = "";
 
 
 //Display saved data for today's guesses
@@ -1099,6 +1101,23 @@ formElem.addEventListener("submit", (event) => {
         handleGuess(guessesElems[guesses.length], ranger);
     }
     inputElem.value = "";
+})
+
+//Create share text using guessesAsEmoji and copy to clipboard
+shareButton.addEventListener("click", () => {
+    let shareText = `Mighty Morphle ${new Date().toISOString().slice(0, 10)} ${gameState === "loss" ? "X" : guesses.length}/8 \n`;
+    //Insert \n after every 4 emojis 
+    const emojis = guessesAsEmoji.split(" ");
+    for (let i = 0; i < emojis.length; i++) {
+        if ((i + 1) % 4 == 0) {
+            shareText += emojis[i] + "\n";
+        }
+        else {
+            shareText += emojis[i];
+        }
+    }
+    shareText += "ib-rim.github.io/power-ranger-wordle";
+    navigator.clipboard.writeText(shareText);
 })
 
 //Get ranger object from list using name
@@ -1306,14 +1325,16 @@ function handleGuess(guessElem, ranger) {
     saveGameData();
 }
 
-//Compare guess to target and set appropriate broder
+//Compare guess to target, set appropriate broder and convert to emoji
 function compareGuess(guess, target, elem) {
     if (guess === target) {
         elem.style.borderColor = "green";
+        guessesAsEmoji += "🟩 "
         return 1;
     }
     else {
         elem.style.borderColor = "#b83030";
+        guessesAsEmoji += "🟥 ";
         return 0;
     }
 }
@@ -1331,6 +1352,7 @@ function endGuessing(state) {
     targetElem.innerHTML = target.name;
     gameState = state;
     displayGuessDistribution();
+    shareButton.scrollIntoView();
 }
 
 //Autocomplete
