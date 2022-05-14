@@ -1119,6 +1119,11 @@ shareButton.addEventListener("click", () => {
     }
     shareText += "ib-rim.github.io/power-ranger-wordle";
     navigator.clipboard.writeText(shareText);
+
+    shareButton.textContent = "Results Copied!";
+    setTimeout(() => {
+        shareButton.innerHTML = "<i class='fa-solid fa-share-nodes'></i> Share";
+    }, 3000);
 })
 
 //Get ranger object from list using name
