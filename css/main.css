@@ -521,27 +521,27 @@ input[type="submit"] {
 	}
 
 	.guess {
-		height: 4em;
+		height: 3.5em;
 	}
 
 	.title {
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 	}
 
 	.guess__name {
-		width: 6em;
+		width: 5.25em;
 	}
 
 	.guess__color {
-		width: 4em;
+		width: 3.5em;
 	}
 
 	.guess__team {
-		width: 6em;
+		width: 5.25em;
 	}
 
 	.guess__era {
-		width: 4em;
+		width: 3.5em;
 	}
 
 	input[type="text"] {
