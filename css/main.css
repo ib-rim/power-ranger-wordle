@@ -520,28 +520,13 @@ input[type="submit"] {
 		gap: 0.75em;
 	}
 
+	.example > *,
 	.guess {
-		height: 3.5em;
+		font-size: 0.8rem;
 	}
 
 	.title {
 		font-size: 1.3rem;
-	}
-
-	.guess__name {
-		width: 5.25em;
-	}
-
-	.guess__color {
-		width: 3.5em;
-	}
-
-	.guess__team {
-		width: 5.25em;
-	}
-
-	.guess__era {
-		width: 3.5em;
 	}
 
 	input[type="text"] {
