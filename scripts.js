@@ -1461,12 +1461,11 @@ function autocomplete(inp, arr) {
 }
 autocomplete(inputElem, rangers);
 
-//Countdown to UTC midnight (WIP)
+//Countdown to local midnight
 setInterval(() => {
     let toDate = new Date();
     let tomorrow = new Date();
     tomorrow.setHours(24, 0, 0, 0);
-    tomorrow.setHours(1, 0, 0, 0);
     let diffMS = tomorrow.getTime() / 1000 - toDate.getTime() / 1000;
     let diffHr = Math.floor(diffMS / 3600);
     diffMS = diffMS - diffHr * 3600;
