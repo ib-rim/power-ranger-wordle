@@ -84,7 +84,7 @@ button:hover {
 }
 
 .backdrop {
-    position: absolute;
+    position: fixed;
     inset: 0;
     background-color: #00000099;
     z-index: 1;
