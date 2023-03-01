@@ -1117,7 +1117,7 @@ shareButton.addEventListener("click", () => {
             shareText += emojis[i];
         }
     }
-    shareText += "ib-rim.github.io/power-ranger-wordle";
+    shareText += window.location.href;
     navigator.clipboard.writeText(shareText);
 
     shareButton.textContent = "Results Copied!";
