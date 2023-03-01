@@ -1281,9 +1281,13 @@ function displayGuessDistribution() {
         }
     });
 
+    let highestValue = guessDistribution[1];
     //Set data value for display and calculate total wins 
     for (let i = 1; i <= 8; i++) {
         if (guessDistribution[i] !== 0) {
+            if(guessDistribution[i] > highestValue) {
+                highestValue = guessDistribution[i];
+            }
             barElems[i - 1].setAttribute("data-value", guessDistribution[i]);
             total += guessDistribution[i];
         }
@@ -1292,7 +1296,8 @@ function displayGuessDistribution() {
     //Set width of bar based on proportion of each guess number
     for (let i = 1; i <= 8; i++) {
         if (guessDistribution[i] !== 0) {
-            barElems[i - 1].style.setProperty("--bar-width", `${Math.round((guessDistribution[i] / total) * 100)}%`);
+            //Highest value is equivalent to 100% width
+            barElems[i - 1].style.setProperty("--bar-width", `${Math.round((guessDistribution[i] / highestValue) * 100)}%`);
         }
     }
 }
