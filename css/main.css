@@ -1,11 +1,13 @@
 @font-face {
     font-family: "Montserrat";
     src: url("../fonts/Montserrat-VariableFont_wght.ttf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "cmu-sans";
     src: url("../fonts/cmu.sans-serif-bold.ttf");
+    font-display: swap;
 }
 
 :root {
