@@ -1285,7 +1285,7 @@ function displayGuessDistribution() {
     //Set data value for display and calculate total wins 
     for (let i = 1; i <= 8; i++) {
         if (guessDistribution[i] !== 0) {
-            if(guessDistribution[i] > highestValue) {
+            if (guessDistribution[i] > highestValue) {
                 highestValue = guessDistribution[i];
             }
             barElems[i - 1].setAttribute("data-value", guessDistribution[i]);
@@ -1365,6 +1365,12 @@ function endGuessing(state) {
     gameState = state;
     displayGuessDistribution();
     shareButton.scrollIntoView();
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        'event': 'gameEnd',
+        'state': state,
+        'guesses': guesses.length
+    });
 }
 
 //Autocomplete
