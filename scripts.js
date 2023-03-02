@@ -1083,19 +1083,17 @@ themeToggle.addEventListener('change', () => {
 });
 
 function setDarkTheme(bool) {
-    window.dataLayer = window.dataLayer || [];
     if (bool) {
         //Switch to dark mode
         rootElem.style.setProperty('--bg-color', getComputedStyle(rootElem).getPropertyValue('--bg-dark'));
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-dark'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-dark'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-dark'));
-        window.dataLayer.push({
-            'event': 'GAEvent',
-            'eventCategory': 'themeChange',
-            'eventAction': 'click',
-            'eventLabel': 'dark',
-            'eventValue': 1,
+       
+        gtag('event', 'click', {
+            'event_category': 'change_theme',
+            'event_label': 'dark',
+            'value': 1
         });
     }
     else {
@@ -1104,12 +1102,11 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-light'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-light'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-light'));
-        window.dataLayer.push({
-            'event': 'GAEvent',
-            'eventCategory': 'themeChange',
-            'eventAction': 'click',
-            'eventLabel': 'light',
-            'eventValue': 1,
+       
+        gtag('event', 'click', {
+            'event_category': 'change_theme',
+            'event_label': 'light',
+            'value': 1
         });
     }
     themeToggle.checked = bool;
@@ -1386,13 +1383,11 @@ function endGuessing(state) {
     gameState = state;
     displayGuessDistribution();
     shareButton.scrollIntoView();
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-        'event': 'GAEvent',
-        'eventCategory': 'gameEnd',
-        'eventAction': state,
-        'eventLabel': guesses.length,
-        'eventValue': 1,
+
+    gtag('event', 'gameEnd', {
+        'event_category': state,
+        'event_label': guesses.length,
+        'value': 1
     });
 }
 
