@@ -11,6 +11,16 @@
 
         gtag('config', 'G-8ZDBVPT1LZ');
     </script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T5JL8P9');</script>
+    <!-- End Google Tag Manager -->
     <title>Mighty Morphle</title>
     <meta name="description"
         content="Power Rangers themed Wordle clone. The goal is to guess the random power ranger each day using the given clues.">
@@ -29,12 +39,10 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
+<link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5JL8P9" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div class="backdrop hidden"></div>
     <div class="container">
         <header>
@@ -109,7 +117,6 @@
                         <span class="slider round"></span>
                     </label>
                 </div>
-                <a href="#" id="open_preferences_center" class="cookies-preferences">Update cookies preferences</a>
             </div>
             <button class="close-modal">Close</button>
         </div>
@@ -176,6 +183,21 @@
             <button id="share" class="share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#000"
+                },
+                "button": {
+                    "background": "#f1d600"
+                }
+            },
+            "theme": "classic",
+            "type": "opt-out"
+        });
+    </script>
 </body>
 
 </html>

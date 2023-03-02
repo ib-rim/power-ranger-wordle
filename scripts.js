@@ -1090,12 +1090,14 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-dark'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-dark'));
 
-        window.dataLayer = window.dataLayer || [];
-        gtag('event', 'click', {
-            'event_category': 'change_theme',
-            'event_label': 'dark',
-            'value': 1
-        });
+        if (getCookie('cookieconsent_status') !== 'deny') {
+            window.dataLayer = window.dataLayer || [];
+            gtag('event', 'click', {
+                'event_category': 'change_theme',
+                'event_label': 'dark',
+                'value': 1
+            });
+        }
     }
     else {
         //Switch to light mode
@@ -1104,12 +1106,14 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-light'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-light'));
 
-        window.dataLayer = window.dataLayer || [];
-        gtag('event', 'click', {
-            'event_category': 'change_theme',
-            'event_label': 'light',
-            'value': 1
-        });
+        if (getCookie('cookieconsent_status') !== 'deny') {
+            window.dataLayer = window.dataLayer || [];
+            gtag('event', 'click', {
+                'event_category': 'change_theme',
+                'event_label': 'light',
+                'value': 1
+            });
+        }
     }
     themeToggle.checked = bool;
 }
@@ -1386,12 +1390,14 @@ function endGuessing(state) {
     displayGuessDistribution();
     shareButton.scrollIntoView();
 
-    window.dataLayer = window.dataLayer || [];
-    gtag('event', 'gameEnd', {
-        'event_category': state,
-        'event_label': guesses.length,
-        'value': 1
-    });
+    if (getCookie('cookieconsent_status') !== 'deny') {
+        window.dataLayer = window.dataLayer || [];
+        gtag('event', 'gameEnd', {
+            'event_category': state,
+            'event_label': guesses.length,
+            'value': 1
+        });
+    }
 }
 
 //Autocomplete
@@ -1510,3 +1516,19 @@ setInterval(() => {
     timeElem.innerHTML = result;
 
 }, 1000);
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
