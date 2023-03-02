@@ -1077,12 +1077,17 @@ themeToggle.addEventListener('change', () => {
 });
 
 function setDarkTheme(bool) {
+    window.dataLayer = window.dataLayer || [];
     if (bool) {
         //Switch to dark mode
         rootElem.style.setProperty('--bg-color', getComputedStyle(rootElem).getPropertyValue('--bg-dark'));
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-dark'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-dark'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-dark'));
+        window.dataLayer.push({
+            'event': 'themeChange',
+            'state': 'dark'
+        });
     }
     else {
         //Switch to light mode
@@ -1090,6 +1095,10 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-light'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-light'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-light'));
+        window.dataLayer.push({
+            'event': 'themeChange',
+            'state': 'light'
+        });
     }
     themeToggle.checked = bool;
 }
