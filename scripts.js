@@ -1089,8 +1089,9 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-dark'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-dark'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-dark'));
-       
-        gtag('event', 'click', {
+
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push('event', 'click', {
             'event_category': 'change_theme',
             'event_label': 'dark',
             'value': 1
@@ -1102,8 +1103,9 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-light'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-light'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-light'));
-       
-        gtag('event', 'click', {
+
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push('event', 'click', {
             'event_category': 'change_theme',
             'event_label': 'light',
             'value': 1
@@ -1384,7 +1386,8 @@ function endGuessing(state) {
     displayGuessDistribution();
     shareButton.scrollIntoView();
 
-    gtag('event', 'gameEnd', {
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push('event', 'gameEnd', {
         'event_category': state,
         'event_label': guesses.length,
         'value': 1
