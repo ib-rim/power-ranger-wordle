@@ -270,7 +270,7 @@ rangers = [
         era: "saban"
     },
     {
-        name: "Mike Corbett",
+        name: "Mike Corbett (Black)",
         color: "black",
         team: "lostgalaxy",
         era: "saban"
