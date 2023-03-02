@@ -1091,8 +1091,11 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-dark'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-dark'));
         window.dataLayer.push({
-            'event': 'themeChange',
-            'state': 'dark'
+            'event': 'GAEvent',
+            'eventCategory': 'themeChange',
+            'eventAction': 'click',
+            'eventLabel': 'dark',
+            'eventValue': 1,
         });
     }
     else {
@@ -1102,8 +1105,11 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-light'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-light'));
         window.dataLayer.push({
-            'event': 'themeChange',
-            'state': 'light'
+            'event': 'GAEvent',
+            'eventCategory': 'themeChange',
+            'eventAction': 'click',
+            'eventLabel': 'light',
+            'eventValue': 1,
         });
     }
     themeToggle.checked = bool;
@@ -1382,9 +1388,11 @@ function endGuessing(state) {
     shareButton.scrollIntoView();
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-        'event': 'gameEnd',
-        'state': state,
-        'guesses': guesses.length
+        'event': 'GAEvent',
+        'eventCategory': 'gameEnd',
+        'eventAction': state,
+        'eventLabel': guesses.length,
+        'eventValue': 1,
     });
 }
 
