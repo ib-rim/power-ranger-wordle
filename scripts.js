@@ -1080,6 +1080,14 @@ function closeModal() {
 themeToggle.addEventListener('change', () => {
     setDarkTheme(themeToggle.checked);
     localStorage.setItem("darkTheme", themeToggle.checked);
+    if (getCookie('cookieconsent_status') !== 'deny') {
+        window.dataLayer = window.dataLayer || [];
+        gtag('event', 'click', {
+            'event_category': 'change_theme',
+            'event_label': themeToggle.checked ? 'dark' : 'light',
+            'value': 1
+        });
+    }
 });
 
 function setDarkTheme(bool) {
@@ -1089,15 +1097,6 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-dark'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-dark'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-dark'));
-
-        if (getCookie('cookieconsent_status') !== 'deny') {
-            window.dataLayer = window.dataLayer || [];
-            gtag('event', 'click', {
-                'event_category': 'change_theme',
-                'event_label': 'dark',
-                'value': 1
-            });
-        }
     }
     else {
         //Switch to light mode
@@ -1105,15 +1104,6 @@ function setDarkTheme(bool) {
         rootElem.style.setProperty('--header-bg-color', getComputedStyle(rootElem).getPropertyValue('--header-bg-light'));
         rootElem.style.setProperty('--text-color', getComputedStyle(rootElem).getPropertyValue('--text-light'));
         rootElem.style.setProperty('--guess-bg-color', getComputedStyle(rootElem).getPropertyValue('--guess-bg-light'));
-
-        if (getCookie('cookieconsent_status') !== 'deny') {
-            window.dataLayer = window.dataLayer || [];
-            gtag('event', 'click', {
-                'event_category': 'change_theme',
-                'event_label': 'light',
-                'value': 1
-            });
-        }
     }
     themeToggle.checked = bool;
 }
