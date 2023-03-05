@@ -541,3 +541,8 @@ input[type="submit"] {
         min-width: 15em;
     }
 }
+
+.cc-revoke {
+    left: 0px !important;
+    padding-bottom: 5px !important; 
+}
