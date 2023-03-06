@@ -1436,6 +1436,7 @@ function autocomplete(inp, arr) {
                 a.appendChild(b);
             }
         }
+        a.scrollIntoView();
     });
     /*execute a function presses a key on the keyboard:*/
     inp.addEventListener("keydown", function (e) {
