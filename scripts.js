@@ -1144,11 +1144,16 @@ shareButton.addEventListener("click", () => {
 //Get ranger object from list using name
 function getRanger(rangerName) {
     for (let i = 0; i < rangers.length; i++) {
-        if (rangers[i].name.toLowerCase() === rangerName.toLowerCase()) {
+        if (formatRangerName(rangers[i].name) === formatRangerName(rangerName)) {
             return rangers[i];
         }
     }
     return "";
+}
+
+//Return lowercase version of name
+function formatRangerName(name) {
+    return name.toLowerCase();
 }
 
 //Create hash using given date
@@ -1328,7 +1333,7 @@ function handleGuess(guessElem, ranger) {
     nameElem.setAttribute("active", "true");
     let rangerName = ranger.name.split("(")[0];
     nameElem.textContent = rangerName
-    correctCount += compareGuess(rangerName.toLowerCase(), target.name.split("(")[0].toLowerCase(), nameElem);
+    correctCount += compareGuess(formatRangerName(rangerName), formatRangerName(target.name.split("(")[0]), nameElem);
 
     colorElem.className = `guess__color ${ranger.color}-ranger`;
     correctCount += compareGuess(ranger.color, target.color, colorElem);
@@ -1412,7 +1417,7 @@ function autocomplete(inp, arr) {
         /*for each item in the array...*/
         for (i = 0; i < arr.length; i++) {
             /*check if the item starts with the same letters as the text field value:*/
-            if (arr[i].name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if (formatRangerName(arr[i].name).substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                 /*create a DIV element for each matching element:*/
                 b = document.createElement("DIV");
                 /*make the matching letters bold:*/
