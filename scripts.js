@@ -1002,6 +1002,7 @@ const themeToggle = document.querySelector("#theme-toggle");
 const guessesElems = document.querySelector(".guesses").children;
 const formElem = document.querySelector("#form");
 const inputElem = document.querySelector("#input");
+const submitButton = document.querySelector("#submit");
 
 //Feedback elements
 const targetElem = document.querySelector(".target-ranger");
@@ -1449,7 +1450,9 @@ function autocomplete(inp, arr) {
             addActive(x);
         } else if (e.keyCode == 13) {
             /*If the ENTER key is pressed, prevent the form from being submitted,*/
-            e.preventDefault();
+            if (document.getElementsByClassName("autocomplete-active").length !== 0) {
+                e.preventDefault();
+            }
             if (currentFocus > -1) {
                 /*and simulate a click on the "active" item:*/
                 if (x) x[currentFocus].click();
