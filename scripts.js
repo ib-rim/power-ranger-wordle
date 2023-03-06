@@ -1144,7 +1144,7 @@ shareButton.addEventListener("click", () => {
 //Get ranger object from list using name
 function getRanger(rangerName) {
     for (let i = 0; i < rangers.length; i++) {
-        if (rangers[i].name === rangerName) {
+        if (rangers[i].name.toLowerCase() === rangerName.toLowerCase()) {
             return rangers[i];
         }
     }
@@ -1328,7 +1328,7 @@ function handleGuess(guessElem, ranger) {
     nameElem.setAttribute("active", "true");
     let rangerName = ranger.name.split("(")[0];
     nameElem.textContent = rangerName
-    correctCount += compareGuess(rangerName, target.name.split("(")[0], nameElem);
+    correctCount += compareGuess(rangerName.toLowerCase(), target.name.split("(")[0].toLowerCase(), nameElem);
 
     colorElem.className = `guess__color ${ranger.color}-ranger`;
     correctCount += compareGuess(ranger.color, target.color, colorElem);
