@@ -1151,9 +1151,9 @@ function getRanger(rangerName) {
     return "";
 }
 
-//Return lowercase version of name
+//Return lowercase version of name with whitespace and dots removed
 function formatRangerName(name) {
-    return name.toLowerCase();
+    return name.toLowerCase().replaceAll(".", "").replaceAll(" ", "");
 }
 
 //Create hash using given date
