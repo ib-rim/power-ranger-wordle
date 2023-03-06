@@ -504,7 +504,7 @@ rangers = [
         era: "disney"
     },
     {
-        name: "Anubis Cruger (Black)",
+        name: "Doggie Cruger (Black)",
         color: "black",
         team: "spd",
         era: "disney"
