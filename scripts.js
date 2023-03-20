@@ -1014,6 +1014,7 @@ setDarkTheme(localStorage.getItem("darkTheme") === "true");
 
 let target = rangers[hashDate(new Date())];
 let guesses = [];
+const guessLimit = 9;
 
 let gameState = "incomplete";
 let gameData = JSON.parse(localStorage.getItem("gameData")) || [];
@@ -1121,7 +1122,7 @@ formElem.addEventListener("submit", (event) => {
 
 //Create share text using guessesAsEmoji and copy to clipboard
 shareButton.addEventListener("click", () => {
-    let shareText = `Mighty Morphle ${new Date().toISOString().slice(0, 10)} ${gameState === "loss" ? "X" : guesses.length}/8 \n`;
+    let shareText = `Mighty Morphle ${new Date().toISOString().slice(0, 10)} ${gameState === "loss" ? "X" : guesses.length}/${guessLimit} \n`;
     //Insert \n after every 4 emojis 
     const emojis = guessesAsEmoji.split(" ");
     for (let i = 0; i < emojis.length; i++) {
@@ -1292,6 +1293,7 @@ function displayGuessDistribution() {
         6: 0,
         7: 0,
         8: 0,
+        9: 0,
     };
 
     //Tally number of guesses for each win
@@ -1303,7 +1305,7 @@ function displayGuessDistribution() {
 
     let highestValue = guessDistribution[1];
     //Set data value for display and calculate total wins 
-    for (let i = 1; i <= 8; i++) {
+    for (let i = 1; i <= guessLimit; i++) {
         if (guessDistribution[i] !== 0) {
             if (guessDistribution[i] > highestValue) {
                 highestValue = guessDistribution[i];
@@ -1314,7 +1316,7 @@ function displayGuessDistribution() {
     }
 
     //Set width of bar based on proportion of each guess number
-    for (let i = 1; i <= 8; i++) {
+    for (let i = 1; i <= guessLimit; i++) {
         if (guessDistribution[i] !== 0) {
             //Highest value is equivalent to 100% width
             barElems[i - 1].style.setProperty("--bar-width", `${Math.round((guessDistribution[i] / highestValue) * 100)}%`);
