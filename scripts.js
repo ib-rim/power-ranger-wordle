@@ -1021,14 +1021,6 @@ let gameState = "incomplete";
 let gameData = JSON.parse(localStorage.getItem("gameData")) || [];
 let guessesAsEmoji = "";
 
-let testRangers = [];
-for (let day = 1; day <= 365; day++) {
-    let date = new Date(2022, 12, day);
-    console.log(day + " " + (parseInt(date.getMonth()) + 1) + " " + date.getDate() + " " + JSON.stringify(rangers[hashDate(date)]));
-    testRangers.push(JSON.stringify(rangers[hashDate(date)]));
-}
-console.log(new Set(testRangers).size);
-
 //Display saved data for today's guesses
 for (let i = 0; i < gameData.length; i++) {
     if (gameData[i].date === (new Date).toISOString().slice(0, 10)) {
