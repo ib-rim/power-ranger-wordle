@@ -972,6 +972,7 @@ rangers = [
         era: "hasbro"
     }
 ]
+shuffleArray(rangers, new Date().getFullYear());
 
 const rootElem = document.querySelector(":root");
 
@@ -1020,6 +1021,13 @@ let gameState = "incomplete";
 let gameData = JSON.parse(localStorage.getItem("gameData")) || [];
 let guessesAsEmoji = "";
 
+let testRangers = [];
+for (let day = 1; day <= 365; day++) {
+    let date = new Date(2022, 12, day);
+    console.log(day + " " + (parseInt(date.getMonth()) + 1) + " " + date.getDate() + " " + JSON.stringify(rangers[hashDate(date)]));
+    testRangers.push(JSON.stringify(rangers[hashDate(date)]));
+}
+console.log(new Set(testRangers).size);
 
 //Display saved data for today's guesses
 for (let i = 0; i < gameData.length; i++) {
@@ -1159,15 +1167,8 @@ function formatRangerName(name) {
 
 //Create hash using given date
 function hashDate(d) {
-    let dateString = d.toDateString().slice(4);
-    let sum = 0;
-    for (let i = 0; i < dateString.length; i++) {
-        sum += dateString.charCodeAt(i);
-        sum *= 10;
-        sum -= 53;
-    }
-    sum *= getDayOfYear(d);
-    let dateHashed = sum % rangers.length;
+    let dayOfYear = getDayOfYear(d);
+    let dateHashed = dayOfYear % rangers.length;
     return dateHashed;
 }
 
@@ -1532,4 +1533,24 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+//prng function
+function mulberry32(a) {
+    return function() {
+      var t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ t >>> 15, t | 1);
+      t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    }
+}
+
+//Shuffle rangers array using mulberry32 prng function for consistent result
+function shuffleArray(array, seed) {
+    const prng = mulberry32(seed); // Create a PRNG with the given seed
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(prng() * (i + 1)); // Generate a random index from 0 to i
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements at index i and j
+    }
+    return array;
 }
