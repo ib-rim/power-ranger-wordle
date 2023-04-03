@@ -1023,7 +1023,7 @@ let guessesAsEmoji = "";
 
 //Display saved data for today's guesses
 for (let i = 0; i < gameData.length; i++) {
-    if (gameData[i].date === (new Date).toISOString().slice(0, 10)) {
+    if (gameData[i].date === formatDate(new Date())) {
         gameData[i].guesses.forEach(guess => {
             handleGuess(guessesElems[guesses.length], guess);
         });
@@ -1122,7 +1122,7 @@ formElem.addEventListener("submit", (event) => {
 
 //Create share text using guessesAsEmoji and copy to clipboard
 shareButton.addEventListener("click", () => {
-    let shareText = `Mighty Morphle ${new Date().toISOString().slice(0, 10)} ${gameState === "loss" ? "X" : guesses.length}/${guessLimit} \n`;
+    let shareText = `Mighty Morphle ${formatDate(new Date())} ${gameState === "loss" ? "X" : guesses.length}/${guessLimit} \n`;
     //Insert \n after every 4 emojis 
     const emojis = guessesAsEmoji.split(" ");
     for (let i = 0; i < emojis.length; i++) {
@@ -1157,6 +1157,15 @@ function formatRangerName(name) {
     return name.toLowerCase().replaceAll(".", "").replaceAll(" ", "");
 }
 
+//Return date in yyyy-mm-dd form
+function formatDate(date) {
+    // return new Date().toISOString().slice(0, 10);
+    let year = date.getFullYear();
+    let month = date.getMonth()+1;
+    let day = date.getDate();
+    return `${year}-${month < 10 ? 0 : ''}${month}-${day < 10 ? 0 : ''}${day}`;
+}
+
 //Create hash using given date
 function hashDate(d) {
     let dayOfYear = getDayOfYear(d);
@@ -1186,9 +1195,9 @@ function saveGameData() {
 
     //Override today's data with any new data
     for (let i = 0; i < gameData.length && !todaySaved; i++) {
-        if (gameData[i].date === (new Date).toISOString().slice(0, 10)) {
+        if (gameData[i].date === formatDate(new Date())) {
             gameData[i] = {
-                "date": (new Date).toISOString().slice(0, 10),
+                "date": formatDate(new Date()),
                 "guesses": guesses,
                 "state": gameState,
             };
@@ -1199,7 +1208,7 @@ function saveGameData() {
     //Save today's data to localStorage if not already saved
     if (!todaySaved) {
         gameData.push({
-            "date": (new Date).toISOString().slice(0, 10),
+            "date": formatDate(new Date()),
             "guesses": guesses,
             "state": gameState,
         })
